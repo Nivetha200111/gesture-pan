@@ -1,0 +1,3 @@
+import { LiquidGlassEffect } from './liquidGlass';
+import type { GestureFrame, Vec2 } from '../../types'; import type { ParticleSystem } from '../ParticleSystem';
+export class MatrixRainEffect extends LiquidGlassEffect { mode = 'matrix' as const; update(input: GestureFrame, dt: number, p: ParticleSystem) { super.update(input, dt, p); for(let i=0;i<5;i++) p.emit({x:Math.random(),y:-.02}, 'matrix', 1, .15); if (input.hands[0]) p.emit(input.hands[0].index, 'matrix', 5, .8); } triggerKissyBurst(payload: { mouth: Vec2 }, p: ParticleSystem) { p.emit(payload.mouth, 'matrix', 150, 2.2); this.strength = 2; } }

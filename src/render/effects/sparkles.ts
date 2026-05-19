@@ -1,0 +1,3 @@
+import { LiquidGlassEffect } from './liquidGlass';
+import type { GestureFrame, Vec2 } from '../../types'; import type { ParticleSystem } from '../ParticleSystem';
+export class SparklesEffect extends LiquidGlassEffect { mode = 'sparkles' as const; update(input: GestureFrame, dt: number, p: ParticleSystem) { super.update(input, dt, p); if (input.hands[0]) p.emit(input.hands[0].index, 'sparkles', input.hands[0].pinchStrength>.45?9:4, .9); if (input.hands.length>1) p.emit({x:(input.hands[0].palm.x+input.hands[1].palm.x)/2,y:(input.hands[0].palm.y+input.hands[1].palm.y)/2}, 'sparkles', 8, 1.1); } triggerKissyBurst(payload: { mouth: Vec2 }, p: ParticleSystem) { p.emit(payload.mouth, 'sparkles', 150, 2.4); this.strength = 2; } }
