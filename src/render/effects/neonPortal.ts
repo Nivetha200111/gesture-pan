@@ -1,3 +1,0 @@
-import { LiquidGlassEffect } from './liquidGlass';
-import type { GestureFrame, Vec2 } from '../../types'; import type { ParticleSystem } from '../ParticleSystem';
-export class NeonPortalEffect extends LiquidGlassEffect { mode = 'neon' as const; update(input: GestureFrame, dt: number, p: ParticleSystem) { super.update(input, dt, p); if (input.hands.length>1) p.emit({x:(input.hands[0].palm.x+input.hands[1].palm.x)/2,y:(input.hands[0].palm.y+input.hands[1].palm.y)/2}, 'neon', 12, 1.4); else if (input.hands[0]) p.emit(input.hands[0].index, 'neon', 3, .8); } triggerKissyBurst(payload: { mouth: Vec2 }, p: ParticleSystem) { p.emit(payload.mouth, 'neon', 110, 2.2); this.strength = 2.1; } }

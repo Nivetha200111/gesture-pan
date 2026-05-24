@@ -1,3 +1,0 @@
-import { LiquidGlassEffect } from './liquidGlass';
-import type { GestureFrame, Vec2 } from '../../types'; import type { ParticleSystem } from '../ParticleSystem';
-export class ChaosEffect extends LiquidGlassEffect { mode = 'chaos' as const; update(input: GestureFrame, dt: number, p: ParticleSystem) { super.update(input, dt, p); const at=input.hands[0]?.index ?? {x:.5+Math.sin(Date.now()/300)*.25,y:.48+Math.cos(Date.now()/420)*.25}; (['sparkles','matrix','glitch','rainfall','neon'] as const).forEach(m=>p.emit(at,m,2,1)); p.rain(3); } triggerKissyBurst(payload: { mouth: Vec2 }, p: ParticleSystem) { (['sparkles','matrix','glitch','voxel','neon','heatmap'] as const).forEach(m=>p.emit(payload.mouth,m,45,2.2)); this.strength = 2.5; } }

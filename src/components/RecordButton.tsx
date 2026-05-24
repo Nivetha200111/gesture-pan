@@ -1,6 +1,22 @@
 import { Circle, Square } from 'lucide-react';
+
 export function RecordButton({ recording, time, onClick }: { recording: boolean; time: number; onClick: () => void }) {
-  return <button onClick={onClick} className={`glass grid h-14 w-14 place-items-center rounded-full transition active:scale-90 ${recording ? 'text-rose-300' : 'text-white'}`} aria-label="Record">
-    {recording ? <><Square className="h-5 w-5 fill-current" /><span className="absolute mt-20 text-xs font-bold">{time}s</span></> : <Circle className="h-7 w-7 fill-rose-500 text-rose-500 drop-shadow-[0_0_14px_rgba(244,63,94,.9)]" />}
-  </button>;
+  return (
+    <div className="flex flex-col items-center gap-1">
+      <button
+        onClick={onClick}
+        className={`grid h-12 w-12 place-items-center rounded-full transition-all active:scale-90 ${
+          recording
+            ? 'bg-rose-500/20 text-rose-400 shadow-[0_0_20px_rgba(244,63,94,.4)]'
+            : 'bg-white/[.06] text-white/60 hover:bg-white/[.12] hover:text-white'
+        }`}
+        aria-label={recording ? 'Stop recording' : 'Start recording'}
+      >
+        {recording
+          ? <Square className="h-4 w-4 fill-current" />
+          : <Circle className="h-5 w-5 fill-rose-500 text-rose-500" />}
+      </button>
+      {recording && <span className="text-[10px] font-mono tabular-nums text-rose-400/80">{time}s</span>}
+    </div>
+  );
 }

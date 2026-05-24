@@ -3,3 +3,9 @@ dist
 *.tsbuildinfo
 vite.config.js
 vite.config.d.ts
+*.toe.bkp*
+*.tox.bkp*
+*.toe.dir/
+*.tox.dir/
+*.toe.toc
+*.tox.toc

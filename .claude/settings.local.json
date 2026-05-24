@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx tsc *)",
+      "Bash(npx vite *)",
+      "Bash(Select-Object -Last 20)",
+      "mcp__Claude_Preview__preview_start",
+      "PowerShell(npx tsc --noEmit 2>&1)",
+      "PowerShell(Set-Location \"C:\\\\Users\\\\NivethaSivakumar\\\\Downloads\\\\gesture-pan\\\\touchdesigner\"; powershell -ExecutionPolicy Bypass -File .\\\\make_camera_ball_game_toe.ps1 2>&1)",
+      "PowerShell(if \\(Test-Path \"C:\\\\Users\\\\NivethaSivakumar\\\\Downloads\\\\gesture-pan\\\\touchdesigner\\\\CameraBallGame.toe\"\\) { $f = Get-Item \"C:\\\\Users\\\\NivethaSivakumar\\\\Downloads\\\\gesture-pan\\\\touchdesigner\\\\CameraBallGame.toe\"; Write-Host \"Path: $\\($f.FullName\\)\"; Write-Host \"Size: $\\([math]::Round\\($f.Length / 1KB, 1\\)\\) KB\"; Write-Host \"Modified: $\\($f.LastWriteTime\\)\" } else { Write-Host \"NOT FOUND\" })",
+      "PowerShell(if \\(Test-Path \"C:\\\\Users\\\\NivethaSivakumar\\\\Downloads\\\\gesture-pan\\\\touchdesigner\\\\CameraBallGame.toe.dir\"\\) { Get-ChildItem -Recurse \"C:\\\\Users\\\\NivethaSivakumar\\\\Downloads\\\\gesture-pan\\\\touchdesigner\\\\CameraBallGame.toe.dir\" | ForEach-Object { Write-Host \"$\\($_.FullName\\) - $\\($_.Length\\) bytes\" } } else { Write-Host \"No expanded dir found\" })"
+    ]
+  }
+}
